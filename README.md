@@ -21,6 +21,9 @@ Supports the following features -
 - Saved games persist in the browser (IndexedDB)
 - Host the application yourself
 
+
+You can try it here: https://neilb.net/gzdoom/
+
 # Build Instructions
 
 You will need a Linux environment to build ZDoom Web. I used WSL on Windows but any

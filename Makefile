@@ -229,7 +229,8 @@ $(OBJDIR)/%.c.o: $(ROOT)/%.c
 	$(CC) $(COMMON) $(GROUPFLAGS) -MMD -MP -MF $(@:.o=.d) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR) $(OUT) gzdoom.wasm gzdoom.data
+	rm -rf $(OBJDIR) $(OUT)
+	rm -f $(DISTDIR)/gzdoom.js $(DISTDIR)/gzdoom.wasm $(DISTDIR)/gzdoom.data
 
 .PHONY: all clean
 
