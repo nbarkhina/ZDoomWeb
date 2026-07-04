@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2010002-0000-4B2C-8C9D-000000000002}</ProjectGuid>
+    <RootNamespace>lzma</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\lzma\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\lzma\Release\</IntDir>
+    <TargetName>lzma</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\lzma\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\lzma\Debug\</IntDir>
+    <TargetName>lzma</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <PreprocessorDefinitions>Z7_PPMD_SUPPORT;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <PreprocessorDefinitions>Z7_PPMD_SUPPORT;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="C\7zAlloc.c" />
+    <ClCompile Include="C\7zArcIn.c" />
+    <ClCompile Include="C\7zBuf.c" />
+    <ClCompile Include="C\7zBuf2.c" />
+    <ClCompile Include="C\7zCrc.c" />
+    <ClCompile Include="C\7zCrcOpt.c" />
+    <ClCompile Include="C\7zDec.c" />
+    <ClCompile Include="C\7zFile.c" />
+    <ClCompile Include="C\7zStream.c" />
+    <ClCompile Include="C\Alloc.c" />
+    <ClCompile Include="C\Bcj2.c" />
+    <ClCompile Include="C\Bcj2Enc.c" />
+    <ClCompile Include="C\Bra.c" />
+    <ClCompile Include="C\Bra86.c" />
+    <ClCompile Include="C\CpuArch.c" />
+    <ClCompile Include="C\Delta.c" />
+    <ClCompile Include="C\DllSecur.c" />
+    <ClCompile Include="C\LzFind.c" />
+    <ClCompile Include="C\LzFindMt.c" />
+    <ClCompile Include="C\LzFindOpt.c" />
+    <ClCompile Include="C\Lzma2Dec.c" />
+    <ClCompile Include="C\Lzma2DecMt.c" />
+    <ClCompile Include="C\Lzma2Enc.c" />
+    <ClCompile Include="C\LzmaDec.c" />
+    <ClCompile Include="C\LzmaEnc.c" />
+    <ClCompile Include="C\LzmaLib.c" />
+    <ClCompile Include="C\MtCoder.c" />
+    <ClCompile Include="C\MtDec.c" />
+    <ClCompile Include="C\Ppmd7.c" />
+    <ClCompile Include="C\Ppmd7Dec.c" />
+    <ClCompile Include="C\Ppmd7Enc.c" />
+    <ClCompile Include="C\Sha256.c" />
+    <ClCompile Include="C\Sha256Opt.c" />
+    <ClCompile Include="C\Sort.c" />
+    <ClCompile Include="C\SwapBytes.c" />
+    <ClCompile Include="C\Threads.c" />
+    <ClCompile Include="C\Xz.c" />
+    <ClCompile Include="C\XzCrc64.c" />
+    <ClCompile Include="C\XzCrc64Opt.c" />
+    <ClCompile Include="C\XzDec.c" />
+    <ClCompile Include="C\XzEnc.c" />
+    <ClCompile Include="C\XzIn.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2010009-0000-4B2C-8C9D-000000000009}</ProjectGuid>
+    <RootNamespace>zvulkan</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\zvulkan\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\zvulkan\Release\</IntDir>
+    <TargetName>zvulkan</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\zvulkan\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\zvulkan\Debug\</IntDir>
+    <TargetName>zvulkan</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include;include\zvulkan;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include;include\zvulkan;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\vulkanbuilders.cpp" />
+    <ClCompile Include="src\vulkandevice.cpp" />
+    <ClCompile Include="src\vulkaninstance.cpp" />
+    <ClCompile Include="src\vulkansurface.cpp" />
+    <ClCompile Include="src\vulkanswapchain.cpp" />
+    <ClCompile Include="src\vk_mem_alloc\vk_mem_alloc.cpp" />
+    <ClCompile Include="src\volk\volk.c" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\propagateNoContraction.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\PoolAlloc.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\Intermediate.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\attribute.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\Scan.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\SymbolTable.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\RemoveTree.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\reflection.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\iomapper.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\intermOut.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\Versions.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\linkValidate.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\InfoSink.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\Constant.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\IntermTraverse.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\glslang_tab.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\ShaderLang.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\preprocessor\Pp.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\preprocessor\PpAtom.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\preprocessor\PpContext.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\preprocessor\PpTokens.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\preprocessor\PpScanner.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\parseConst.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\Initialize.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\limits.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\ParseContextBase.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\ParseHelper.cpp" />
+    <ClCompile Include="src\glslang\glslang\MachineIndependent\SpirvIntrinsics.cpp" />
+    <ClCompile Include="src\glslang\glslang\GenericCodeGen\Link.cpp" />
+    <ClCompile Include="src\glslang\glslang\GenericCodeGen\CodeGen.cpp" />
+    <ClCompile Include="src\glslang\spirv\GlslangToSpv.cpp" />
+    <ClCompile Include="src\glslang\spirv\doc.cpp" />
+    <ClCompile Include="src\glslang\spirv\disassemble.cpp" />
+    <ClCompile Include="src\glslang\spirv\SpvPostProcess.cpp" />
+    <ClCompile Include="src\glslang\spirv\InReadableOrder.cpp" />
+    <ClCompile Include="src\glslang\spirv\SPVRemapper.cpp" />
+    <ClCompile Include="src\glslang\spirv\SpvBuilder.cpp" />
+    <ClCompile Include="src\glslang\spirv\SpvTools.cpp" />
+    <ClCompile Include="src\glslang\spirv\Logger.cpp" />
+    <ClCompile Include="src\glslang\OGLCompilersDLL\InitializeDll.cpp" />
+    <ClCompile Include="src\glslang\glslang\OSDependent\Windows\ossource.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

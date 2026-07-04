@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2010010-0000-4B2C-8C9D-000000000010}</ProjectGuid>
+    <RootNamespace>zmusic</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\zmusic\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\zmusic\Release\</IntDir>
+    <TargetName>zmusic</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\zmusic\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\zmusic\Debug\</IntDir>
+    <TargetName>zmusic</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <PreprocessorDefinitions>HAVE_SNDFILE;HAVE_MPG123;HAVE_SYSTEM_MIDI;ZMUSIC_STATIC;MINIZ_NO_STDIO;ADLMIDI_DISABLE_MIDI_SEQUENCER;ADLMIDI_ENABLE_OPL2_LLE_EMULATOR;ADLMIDI_ENABLE_OPL3_LLE_EMULATOR;OPNMIDI_DISABLE_MIDI_SEQUENCER;OPNMIDI_ENABLE_OPN2_LLE_EMULATOR;HAVE_POWF=1;LIBXMP_STATIC=1;LIBXMP_NO_PROWIZARD=1;LIBXMP_NO_DEPACKERS=1;HAVE_ZLIB_H;VGM_YM2612_NUKED;_WIN32_WINNT=0x0600;UNICODE;_UNICODE;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\mpg123\src\include;..\libsnd\include;include;source;source\zmusic;source\decoder;thirdparty\adlmidi;thirdparty\opnmidi;thirdparty\dumb\include;thirdparty\timidity;thirdparty\timidity\timidity;thirdparty\timidityplus;thirdparty\timidityplus\timiditypp;thirdparty\wildmidi;thirdparty\wildmidi\wildmidi;thirdparty\oplsynth;thirdparty\oplsynth\oplsynth;thirdparty\libxmp\include;thirdparty\libxmp\src;thirdparty\miniz;thirdparty\game-music-emu;thirdparty\game-music-emu\gme;thirdparty\game-music-emu\gme\ext;thirdparty\fluidsynth\src;thirdparty\fluidsynth\src\drivers;thirdparty\fluidsynth\src\synth;thirdparty\fluidsynth\src\rvoice;thirdparty\fluidsynth\src\midi;thirdparty\fluidsynth\src\utils;thirdparty\fluidsynth\src\sfloader;thirdparty\fluidsynth\src\bindings;thirdparty\fluidsynth\include;thirdparty\fluidsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;4305;4018;4101;4146;4334;4800;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>/fp:fast %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <PreprocessorDefinitions>HAVE_SNDFILE;HAVE_MPG123;HAVE_SYSTEM_MIDI;ZMUSIC_STATIC;MINIZ_NO_STDIO;ADLMIDI_DISABLE_MIDI_SEQUENCER;ADLMIDI_ENABLE_OPL2_LLE_EMULATOR;ADLMIDI_ENABLE_OPL3_LLE_EMULATOR;OPNMIDI_DISABLE_MIDI_SEQUENCER;OPNMIDI_ENABLE_OPN2_LLE_EMULATOR;HAVE_POWF=1;LIBXMP_STATIC=1;LIBXMP_NO_PROWIZARD=1;LIBXMP_NO_DEPACKERS=1;HAVE_ZLIB_H;VGM_YM2612_NUKED;_WIN32_WINNT=0x0600;UNICODE;_UNICODE;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\mpg123\src\include;..\libsnd\include;include;source;source\zmusic;source\decoder;thirdparty\adlmidi;thirdparty\opnmidi;thirdparty\dumb\include;thirdparty\timidity;thirdparty\timidity\timidity;thirdparty\timidityplus;thirdparty\timidityplus\timiditypp;thirdparty\wildmidi;thirdparty\wildmidi\wildmidi;thirdparty\oplsynth;thirdparty\oplsynth\oplsynth;thirdparty\libxmp\include;thirdparty\libxmp\src;thirdparty\miniz;thirdparty\game-music-emu;thirdparty\game-music-emu\gme;thirdparty\game-music-emu\gme\ext;thirdparty\fluidsynth\src;thirdparty\fluidsynth\src\drivers;thirdparty\fluidsynth\src\synth;thirdparty\fluidsynth\src\rvoice;thirdparty\fluidsynth\src\midi;thirdparty\fluidsynth\src\utils;thirdparty\fluidsynth\src\sfloader;thirdparty\fluidsynth\src\bindings;thirdparty\fluidsynth\include;thirdparty\fluidsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;4305;4018;4101;4146;4334;4800;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>/fp:fast %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\loader\i_module.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_base_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_adlmidi_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_opl_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_opnmidi_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_timiditypp_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_fluidsynth_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_softsynth_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_timidity_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_wildmidi_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_wavewriter_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\midisources\midisource.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\midisources\midisource_mus.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\midisources\midisource_smf.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\midisources\midisource_hmi.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\midisources\midisource_xmi.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\midisources\midisource_mids.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\streamsources\music_dumb.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\streamsources\music_gme.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\streamsources\music_libsndfile.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\streamsources\music_libxmp.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\streamsources\music_opl.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\streamsources\music_xa.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\musicformats\music_stream.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\musicformats\music_midi.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\musicformats\music_cd.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\decoder\sounddecoder.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\decoder\sndfile_decoder.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\decoder\mpg123_decoder.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\zmusic\configuration.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\zmusic\zmusic.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\zmusic\critsec.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\loader\test.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\mididevices\music_win_mididevice.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\musicformats\win32\i_cd.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="source\musicformats\win32\helperthread.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\zmusic;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\adlmidi_midiplay.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\adlmidi_opl3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\adlmidi_private.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\adlmidi.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\adlmidi_load.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\inst_db.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\opal_opl3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\opal\opal.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\dosbox\dbopl.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\nuked_opl3_v174.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\java_opl3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\dosbox_opl3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\nuked_opl3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\nuked\nukedopl3_174.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\nuked\nukedopl3.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ym3812_lle.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ym3812_lle\nopl2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ym3812_lle\nuked_fmopl2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymf262_lle.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymf262_lle\nopl3.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymf262_lle\nuked_fmopl3.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\esfmu_opl3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\esfmu\esfm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\esfmu\esfm_registers.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\mame_opl2.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\wopl\wopl_file.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymfm_opl2.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymfm_opl3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymfm\ymfm_adpcm.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymfm\ymfm_misc.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymfm\ymfm_opl.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymfm\ymfm_pcm.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\adlmidi\chips\ymfm\ymfm_ssg.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\adlmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\opnmidi_load.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\opnmidi_private.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\opnmidi.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\opnmidi_midiplay.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\opnmidi_opn2.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\np2\fmgen_fmgen.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\np2\fmgen_opna.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\np2\fmgen_fmtimer.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\np2\fmgen_file.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\np2\fmgen_psg.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\mame_opn2.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\gens_opn2.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\mame_opna.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\np2_opna.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\mamefm\ymdeltat.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\mamefm\resampler.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\mamefm\fm.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\nuked_opn2.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\gens\Ym2612.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\nuked\ym3438.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\mamefm\emu2149.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\mame\mame_ym2612fm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\ym2612_lle.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\nuked_lle\nopn2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\nuked_lle\fmopna_2612.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\ymf276_lle.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\nuked_lle\nopn2f.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\nuked_lle\fmopn2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\wopn\wopn_file.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\ymfm_opn2.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\ymfm_opna.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\opnmidi\chips\ymfm\ymfm_opn.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\opnmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\unload.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\rendsig.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\rendduh.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\register.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\readduh.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\rawsig.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\makeduh.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\loadduh.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\dumbfile.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\duhtag.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\duhlen.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\core\atexit.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\stdfile.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\silence.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\sampbuf.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\riff.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\resample.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\memfile.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\clickrem.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\barray.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\xmeffect.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readxm2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readxm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readstm2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readstm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\reads3m2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\reads3m.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readriff.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readptm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readpsm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readoldpsm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readokt2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readokt.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readmtm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readmod2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readmod.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readdsmf.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readasy.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readamf2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readamf.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readam.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\read6692.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\read669.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\ptmeffect.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadxm2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadxm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadstm2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadstm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loads3m2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loads3m.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadriff2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadriff.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadptm2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadptm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadpsm2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadpsm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadoldpsm2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadoldpsm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadokt2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadokt.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadmtm2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadmtm.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadmod2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadmod.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadasy2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadasy.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadamf2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadamf.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\load6692.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\load669.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\itunload.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\itrender.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\itread2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\itread.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\itorder.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\itmisc.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\itload2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\itload.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readany.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadany2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\loadany.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\it\readany2.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\resampler.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\dumb\src\helpers\lpc.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\dumb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\common.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\instrum.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\instrum_dls.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\instrum_font.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\instrum_sf2.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\mix.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\playmidi.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\resample.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidity\timidity.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidity\timidity;$(ProjectDir)thirdparty\timidity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\fft4g.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\reverb.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\common.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\configfile.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\effect.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\filter.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\freq.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\instrum.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\mblock.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\mix.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\playmidi.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\quantity.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\readmidic.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\recache.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\resample.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\sbkconv.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\sffile.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\sfitem.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\smplfile.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\sndfont.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\timidityplus\tables.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\timidityplus\timiditypp;$(ProjectDir)thirdparty\timidityplus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\wildmidi\file_io.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\wildmidi\wildmidi;$(ProjectDir)thirdparty\wildmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\wildmidi\gus_pat.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\wildmidi\wildmidi;$(ProjectDir)thirdparty\wildmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\wildmidi\reverb.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\wildmidi\wildmidi;$(ProjectDir)thirdparty\wildmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\wildmidi\wildmidi_lib.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\wildmidi\wildmidi;$(ProjectDir)thirdparty\wildmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\wildmidi\wm_error.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\wildmidi\wildmidi;$(ProjectDir)thirdparty\wildmidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\oplsynth\fmopl.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\oplsynth\oplsynth;$(ProjectDir)thirdparty\oplsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\oplsynth\musicblock.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\oplsynth\oplsynth;$(ProjectDir)thirdparty\oplsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\oplsynth\nukedopl3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\oplsynth\oplsynth;$(ProjectDir)thirdparty\oplsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\oplsynth\opl_mus_player.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\oplsynth\oplsynth;$(ProjectDir)thirdparty\oplsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\oplsynth\OPL3.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\oplsynth\oplsynth;$(ProjectDir)thirdparty\oplsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\oplsynth\oplio.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\oplsynth\oplsynth;$(ProjectDir)thirdparty\oplsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\oplsynth\dosbox\opl.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\oplsynth\oplsynth;$(ProjectDir)thirdparty\oplsynth;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\virtual.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\format.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\period.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\player.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\read_event.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\dataio.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\misc.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\mkstemp.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\md5.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\lfo.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\scan.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\control.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\far_extras.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\med_extras.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\filter.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\effects.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\mixer.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\mix_all.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\load_helpers.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\hio.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\hmn_extras.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\extras.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\smix.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\filetype.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\memio.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\tempfile.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\mix_paula.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\flow.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\rng.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\win32.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\common.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\iff.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\itsex.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\lzw.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\voltable.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\sample.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\vorbis.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\xm_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\mod_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\s3m_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\stm_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\669_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\far_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\mtm_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\ptm_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\okt_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\ult_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\mdl_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\it_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\stx_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\pt3_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\sfx_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\flt_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\st_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\emod_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\imf_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\digi_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\fnk_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\ice_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\liq_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\ims_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\masi_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\masi16_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\amf_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\stim_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\mmd_common.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\mmd1_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\mmd3_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\rtm_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\dt_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\no_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\arch_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\sym_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\med2_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\med3_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\med4_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\dbm_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\umx_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\gdm_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\pw_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\gal5_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\gal4_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\mfp_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\asylum_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\muse_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\hmn_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\mgt_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\chip_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\abk_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\coco_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\libxmp\src\loaders\xmf_load.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\libxmp\include;$(ProjectDir)thirdparty\libxmp\src;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Blip_Buffer.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Classic_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Data_Reader.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Dual_Resampler.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Effects_Buffer.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Fir_Resampler.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\gme.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Gme_File.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\M3u_Playlist.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Multi_Buffer.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Music_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Ay_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Ym2612_Nuked.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Sms_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Ay_Cpu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Ay_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Gb_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Gb_Cpu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Gb_Oscs.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Gbs_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Gym_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Hes_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Hes_Cpu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Hes_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Kss_Cpu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Kss_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Kss_Scc_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nes_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nes_Cpu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nes_Fme7_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nes_Namco_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nes_Oscs.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nes_Vrc6_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nes_Fds_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nes_Vrc7_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\ext\emu2413.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\ext\panning.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nsf_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Nsfe_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Sap_Apu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Sap_Cpu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Sap_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Snes_Spc.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Spc_Cpu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Spc_Dsp.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Spc_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Spc_Filter.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Vgm_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Vgm_Emu_Impl.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\game-music-emu\gme\Ym2413_Emu.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\game-music-emu\gme;$(ProjectDir)thirdparty\game-music-emu\gme\ext;$(ProjectDir)thirdparty\game-music-emu;$(ProjectDir)thirdparty\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\utils\fluid_conv.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\utils\fluid_hash.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\utils\fluid_list.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\utils\fluid_ringbuffer.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\utils\fluid_settings.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\utils\fluid_sys.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\sfloader\fluid_defsfont.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\sfloader\fluid_sfont.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\sfloader\fluid_sffile.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\sfloader\fluid_samplecache.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_adsr_env.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_chorus.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_iir_filter.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_iir_filter_impl.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_lfo.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_rvoice.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_rvoice_dsp.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_rvoice_event.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_rvoice_mixer.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\rvoice\fluid_rev.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\synth\fluid_chan.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\synth\fluid_event.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\synth\fluid_gen.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\synth\fluid_mod.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\synth\fluid_synth.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\synth\fluid_synth_monopoly.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\synth\fluid_tuning.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\synth\fluid_voice.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\midi\fluid_midi.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\midi\fluid_midi_router.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\midi\fluid_seqbind.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\midi\fluid_seqbind_notes.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\midi\fluid_seq.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\midi\fluid_seq_queue.cpp">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\drivers\fluid_adriver.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\drivers\fluid_mdriver.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\bindings\fluid_filerenderer.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\bindings\fluid_ladspa.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="thirdparty\fluidsynth\src\utils\win32_glibstubs.c">
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdparty\fluidsynth\src;$(ProjectDir)thirdparty\fluidsynth\src\drivers;$(ProjectDir)thirdparty\fluidsynth\src\synth;$(ProjectDir)thirdparty\fluidsynth\src\rvoice;$(ProjectDir)thirdparty\fluidsynth\src\midi;$(ProjectDir)thirdparty\fluidsynth\src\utils;$(ProjectDir)thirdparty\fluidsynth\src\sfloader;$(ProjectDir)thirdparty\fluidsynth\src\bindings;$(ProjectDir)thirdparty\fluidsynth\include;$(ProjectDir)thirdparty\fluidsynth;$(ProjectDir)source\decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

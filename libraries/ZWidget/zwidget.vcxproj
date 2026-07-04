@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2010008-0000-4B2C-8C9D-000000000008}</ProjectGuid>
+    <RootNamespace>zwidget</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\zwidget\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\zwidget\Release\</IntDir>
+    <TargetName>zwidget</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\zwidget\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\zwidget\Debug\</IntDir>
+    <TargetName>zwidget</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include;include\zwidget;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include;include\zwidget;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\canvas.cpp" />
+    <ClCompile Include="src\core\font.cpp" />
+    <ClCompile Include="src\core\image.cpp" />
+    <ClCompile Include="src\core\span_layout.cpp" />
+    <ClCompile Include="src\core\timer.cpp" />
+    <ClCompile Include="src\core\widget.cpp" />
+    <ClCompile Include="src\core\utf8reader.cpp" />
+    <ClCompile Include="src\core\pathfill.cpp" />
+    <ClCompile Include="src\core\truetypefont.cpp" />
+    <ClCompile Include="src\core\picopng\picopng.cpp" />
+    <ClCompile Include="src\core\nanosvg\nanosvg.cpp" />
+    <ClCompile Include="src\widgets\lineedit\lineedit.cpp" />
+    <ClCompile Include="src\widgets\mainwindow\mainwindow.cpp" />
+    <ClCompile Include="src\widgets\menubar\menubar.cpp" />
+    <ClCompile Include="src\widgets\scrollbar\scrollbar.cpp" />
+    <ClCompile Include="src\widgets\statusbar\statusbar.cpp" />
+    <ClCompile Include="src\widgets\textedit\textedit.cpp" />
+    <ClCompile Include="src\widgets\toolbar\toolbar.cpp" />
+    <ClCompile Include="src\widgets\toolbar\toolbarbutton.cpp" />
+    <ClCompile Include="src\widgets\imagebox\imagebox.cpp" />
+    <ClCompile Include="src\widgets\textlabel\textlabel.cpp" />
+    <ClCompile Include="src\widgets\pushbutton\pushbutton.cpp" />
+    <ClCompile Include="src\widgets\checkboxlabel\checkboxlabel.cpp" />
+    <ClCompile Include="src\widgets\listview\listview.cpp" />
+    <ClCompile Include="src\widgets\tabwidget\tabwidget.cpp" />
+    <ClCompile Include="src\window\window.cpp" />
+    <ClCompile Include="src\window\win32\win32window.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

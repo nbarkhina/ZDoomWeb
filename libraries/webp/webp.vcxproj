@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2010004-0000-4B2C-8C9D-000000000004}</ProjectGuid>
+    <RootNamespace>webp</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\webp\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\webp\Release\</IntDir>
+    <TargetName>webp</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\webp\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\webp\Debug\</IntDir>
+    <TargetName>webp</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;4005;4018;4146;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;4005;4018;4146;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dec\alpha_dec.c" />
+    <ClCompile Include="src\dec\buffer_dec.c" />
+    <ClCompile Include="src\dec\frame_dec.c" />
+    <ClCompile Include="src\dec\idec_dec.c" />
+    <ClCompile Include="src\dec\io_dec.c" />
+    <ClCompile Include="src\dec\quant_dec.c" />
+    <ClCompile Include="src\dec\tree_dec.c" />
+    <ClCompile Include="src\dec\vp8_dec.c" />
+    <ClCompile Include="src\dec\vp8l_dec.c" />
+    <ClCompile Include="src\dec\webp_dec.c" />
+    <ClCompile Include="src\demux\anim_decode.c" />
+    <ClCompile Include="src\demux\demux.c" />
+    <ClCompile Include="src\dsp\alpha_processing_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\alpha_processing_neon.c" />
+    <ClCompile Include="src\dsp\alpha_processing_sse2.c" />
+    <ClCompile Include="src\dsp\alpha_processing_sse41.c" />
+    <ClCompile Include="src\dsp\alpha_processing.c" />
+    <ClCompile Include="src\dsp\cost_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\cost_mips32.c" />
+    <ClCompile Include="src\dsp\cost_neon.c" />
+    <ClCompile Include="src\dsp\cost_sse2.c" />
+    <ClCompile Include="src\dsp\cost.c" />
+    <ClCompile Include="src\dsp\cpu.c" />
+    <ClCompile Include="src\dsp\dec_clip_tables.c" />
+    <ClCompile Include="src\dsp\dec_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\dec_mips32.c" />
+    <ClCompile Include="src\dsp\dec_msa.c" />
+    <ClCompile Include="src\dsp\dec_neon.c" />
+    <ClCompile Include="src\dsp\dec_sse2.c" />
+    <ClCompile Include="src\dsp\dec_sse41.c" />
+    <ClCompile Include="src\dsp\dec.c" />
+    <ClCompile Include="src\dsp\enc_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\enc_mips32.c" />
+    <ClCompile Include="src\dsp\enc_msa.c" />
+    <ClCompile Include="src\dsp\enc_neon.c" />
+    <ClCompile Include="src\dsp\enc_sse2.c" />
+    <ClCompile Include="src\dsp\enc_sse41.c" />
+    <ClCompile Include="src\dsp\enc.c" />
+    <ClCompile Include="src\dsp\filters_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\filters_msa.c" />
+    <ClCompile Include="src\dsp\filters_neon.c" />
+    <ClCompile Include="src\dsp\filters_sse2.c" />
+    <ClCompile Include="src\dsp\filters.c" />
+    <ClCompile Include="src\dsp\lossless_enc_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\lossless_enc_mips32.c" />
+    <ClCompile Include="src\dsp\lossless_enc_msa.c" />
+    <ClCompile Include="src\dsp\lossless_enc_neon.c" />
+    <ClCompile Include="src\dsp\lossless_enc_sse2.c" />
+    <ClCompile Include="src\dsp\lossless_enc_sse41.c" />
+    <ClCompile Include="src\dsp\lossless_enc.c" />
+    <ClCompile Include="src\dsp\lossless_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\lossless_msa.c" />
+    <ClCompile Include="src\dsp\lossless_neon.c" />
+    <ClCompile Include="src\dsp\lossless_sse2.c" />
+    <ClCompile Include="src\dsp\lossless_sse41.c" />
+    <ClCompile Include="src\dsp\lossless.c" />
+    <ClCompile Include="src\dsp\rescaler_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\rescaler_mips32.c" />
+    <ClCompile Include="src\dsp\rescaler_msa.c" />
+    <ClCompile Include="src\dsp\rescaler_neon.c" />
+    <ClCompile Include="src\dsp\rescaler_sse2.c" />
+    <ClCompile Include="src\dsp\rescaler.c" />
+    <ClCompile Include="src\dsp\ssim_sse2.c" />
+    <ClCompile Include="src\dsp\ssim.c" />
+    <ClCompile Include="src\dsp\upsampling_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\upsampling_msa.c" />
+    <ClCompile Include="src\dsp\upsampling_neon.c" />
+    <ClCompile Include="src\dsp\upsampling_sse2.c" />
+    <ClCompile Include="src\dsp\upsampling_sse41.c" />
+    <ClCompile Include="src\dsp\upsampling.c" />
+    <ClCompile Include="src\dsp\yuv_mips_dsp_r2.c" />
+    <ClCompile Include="src\dsp\yuv_mips32.c" />
+    <ClCompile Include="src\dsp\yuv_neon.c" />
+    <ClCompile Include="src\dsp\yuv_sse2.c" />
+    <ClCompile Include="src\dsp\yuv_sse41.c" />
+    <ClCompile Include="src\dsp\yuv.c" />
+    <ClCompile Include="src\enc\alpha_enc.c" />
+    <ClCompile Include="src\enc\analysis_enc.c" />
+    <ClCompile Include="src\enc\backward_references_cost_enc.c" />
+    <ClCompile Include="src\enc\backward_references_enc.c" />
+    <ClCompile Include="src\enc\config_enc.c" />
+    <ClCompile Include="src\enc\cost_enc.c" />
+    <ClCompile Include="src\enc\filter_enc.c" />
+    <ClCompile Include="src\enc\frame_enc.c" />
+    <ClCompile Include="src\enc\histogram_enc.c" />
+    <ClCompile Include="src\enc\iterator_enc.c" />
+    <ClCompile Include="src\enc\near_lossless_enc.c" />
+    <ClCompile Include="src\enc\picture_csp_enc.c" />
+    <ClCompile Include="src\enc\picture_enc.c" />
+    <ClCompile Include="src\enc\picture_psnr_enc.c" />
+    <ClCompile Include="src\enc\picture_rescale_enc.c" />
+    <ClCompile Include="src\enc\picture_tools_enc.c" />
+    <ClCompile Include="src\enc\predictor_enc.c" />
+    <ClCompile Include="src\enc\quant_enc.c" />
+    <ClCompile Include="src\enc\syntax_enc.c" />
+    <ClCompile Include="src\enc\token_enc.c" />
+    <ClCompile Include="src\enc\tree_enc.c" />
+    <ClCompile Include="src\enc\vp8l_enc.c" />
+    <ClCompile Include="src\enc\webp_enc.c" />
+    <ClCompile Include="src\mux\anim_encode.c" />
+    <ClCompile Include="src\mux\muxedit.c" />
+    <ClCompile Include="src\mux\muxinternal.c" />
+    <ClCompile Include="src\mux\muxread.c" />
+    <ClCompile Include="src\utils\bit_reader_utils.c" />
+    <ClCompile Include="src\utils\bit_writer_utils.c" />
+    <ClCompile Include="src\utils\color_cache_utils.c" />
+    <ClCompile Include="src\utils\filters_utils.c" />
+    <ClCompile Include="src\utils\huffman_encode_utils.c" />
+    <ClCompile Include="src\utils\huffman_utils.c" />
+    <ClCompile Include="src\utils\palette.c" />
+    <ClCompile Include="src\utils\quant_levels_dec_utils.c" />
+    <ClCompile Include="src\utils\quant_levels_utils.c" />
+    <ClCompile Include="src\utils\random_utils.c" />
+    <ClCompile Include="src\utils\rescaler_utils.c" />
+    <ClCompile Include="src\utils\thread_utils.c" />
+    <ClCompile Include="src\utils\utils.c" />
+    <ClCompile Include="sharpyuv\sharpyuv_cpu.c" />
+    <ClCompile Include="sharpyuv\sharpyuv_csp.c" />
+    <ClCompile Include="sharpyuv\sharpyuv_dsp.c" />
+    <ClCompile Include="sharpyuv\sharpyuv_gamma.c" />
+    <ClCompile Include="sharpyuv\sharpyuv_neon.c" />
+    <ClCompile Include="sharpyuv\sharpyuv_sse2.c" />
+    <ClCompile Include="sharpyuv\sharpyuv.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

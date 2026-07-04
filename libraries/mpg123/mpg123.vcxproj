@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2010015-0000-4B2C-8C9D-000000000015}</ProjectGuid>
+    <RootNamespace>mpg123</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\mpg123\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\mpg123\Release\</IntDir>
+    <TargetName>mpg123</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\mpg123\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\mpg123\Debug\</IntDir>
+    <TargetName>mpg123</TargetName>
+  </PropertyGroup>
+  <!--
+    Static, from-source, generic (no-assembly) libmpg123 for MP3 decoding.
+    Only the OPT_GENERIC portable-C decoder is built (no SIMD / no .S), so the
+    exact same source list feeds both this MSVC project and the Emscripten web
+    build (gen_sources.py reads these ClCompile entries into LIB_MPG123). All
+    build knobs come from the committed generated\config.h; MPG123_EXPORT is
+    empty here (no BUILD_MPG123_DLL / LINK_MPG123_DLL) so symbols link statically.
+  -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)generated;$(ProjectDir)src;$(ProjectDir)src\include;$(ProjectDir)src\libmpg123;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)generated;$(ProjectDir)src;$(ProjectDir)src\include;$(ProjectDir)src\libmpg123;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <!-- compat layer -->
+    <ClCompile Include="src\compat\compat.c" />
+    <ClCompile Include="src\compat\compat_str.c" />
+    <!-- libmpg123 core (generic decoder) -->
+    <ClCompile Include="src\libmpg123\parse.c" />
+    <ClCompile Include="src\libmpg123\frame.c" />
+    <ClCompile Include="src\libmpg123\format.c" />
+    <ClCompile Include="src\libmpg123\dct64.c" />
+    <ClCompile Include="src\libmpg123\equalizer.c" />
+    <ClCompile Include="src\libmpg123\id3.c" />
+    <ClCompile Include="src\libmpg123\optimize.c" />
+    <ClCompile Include="src\libmpg123\readers.c" />
+    <ClCompile Include="src\libmpg123\tabinit.c" />
+    <ClCompile Include="src\libmpg123\libmpg123.c" />
+    <ClCompile Include="src\libmpg123\index.c" />
+    <ClCompile Include="src\libmpg123\icy.c" />
+    <ClCompile Include="src\libmpg123\icy2utf8.c" />
+    <ClCompile Include="src\libmpg123\layer1.c" />
+    <ClCompile Include="src\libmpg123\layer2.c" />
+    <ClCompile Include="src\libmpg123\layer3.c" />
+    <ClCompile Include="src\libmpg123\ntom.c" />
+    <ClCompile Include="src\libmpg123\synth_8bit.c" />
+    <ClCompile Include="src\libmpg123\synth.c" />
+    <ClCompile Include="src\libmpg123\synth_s32.c" />
+    <ClCompile Include="src\libmpg123\synth_real.c" />
+    <ClCompile Include="src\libmpg123\stringbuf.c" />
+    <ClCompile Include="src\libmpg123\feature.c" />
+    <ClCompile Include="src\libmpg123\lfs_wrap.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

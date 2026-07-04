@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2010005-0000-4B2C-8C9D-000000000005}</ProjectGuid>
+    <RootNamespace>asmjit</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\asmjit\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\asmjit\Release\</IntDir>
+    <TargetName>asmjit</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\..\build\libraries\asmjit\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\..\vsbuild\libraries\asmjit\Debug\</IntDir>
+    <TargetName>asmjit</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>ASMJIT_BUILD_EMBED;ASMJIT_STATIC;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>ASMJIT_BUILD_EMBED;ASMJIT_STATIC;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="asmjit\base\arch.cpp" />
+    <ClCompile Include="asmjit\base\assembler.cpp" />
+    <ClCompile Include="asmjit\base\codebuilder.cpp" />
+    <ClCompile Include="asmjit\base\codecompiler.cpp" />
+    <ClCompile Include="asmjit\base\codeemitter.cpp" />
+    <ClCompile Include="asmjit\base\codeholder.cpp" />
+    <ClCompile Include="asmjit\base\constpool.cpp" />
+    <ClCompile Include="asmjit\base\cpuinfo.cpp" />
+    <ClCompile Include="asmjit\base\func.cpp" />
+    <ClCompile Include="asmjit\base\globals.cpp" />
+    <ClCompile Include="asmjit\base\inst.cpp" />
+    <ClCompile Include="asmjit\base\logging.cpp" />
+    <ClCompile Include="asmjit\base\operand.cpp" />
+    <ClCompile Include="asmjit\base\osutils.cpp" />
+    <ClCompile Include="asmjit\base\regalloc.cpp" />
+    <ClCompile Include="asmjit\base\runtime.cpp" />
+    <ClCompile Include="asmjit\base\string.cpp" />
+    <ClCompile Include="asmjit\base\utils.cpp" />
+    <ClCompile Include="asmjit\base\vmem.cpp" />
+    <ClCompile Include="asmjit\base\zone.cpp" />
+    <ClCompile Include="asmjit\x86\x86assembler.cpp" />
+    <ClCompile Include="asmjit\x86\x86builder.cpp" />
+    <ClCompile Include="asmjit\x86\x86compiler.cpp" />
+    <ClCompile Include="asmjit\x86\x86inst.cpp" />
+    <ClCompile Include="asmjit\x86\x86instimpl.cpp" />
+    <ClCompile Include="asmjit\x86\x86internal.cpp" />
+    <ClCompile Include="asmjit\x86\x86logging.cpp" />
+    <ClCompile Include="asmjit\x86\x86operand.cpp" />
+    <ClCompile Include="asmjit\x86\x86operand_regs.cpp" />
+    <ClCompile Include="asmjit\x86\x86regalloc.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
