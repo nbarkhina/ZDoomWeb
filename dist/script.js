@@ -26,6 +26,7 @@ class MyClass {
     constructor() {
         this.started = false;
         this.mainCalled = false;
+        this.autoStart = false;     // set by setupAutoload() when GZDOOMSETTINGS.WADURL is present
         this.args = '';
         this._hideTimer = null;     // pending "hide the progress bar" timeout
 
@@ -80,6 +81,13 @@ class MyClass {
 
     // Module.onRuntimeInitialized -> the wasm is ready, but we DON'T run yet.
     initModule() {
+        if (this.autoStart) {
+            // Autoload mode: the runtime is ready -- boot straight into the game
+            // instead of waiting for Play. prepareArgs() fetches the WAD/mods, so
+            // the download progress + status are still shown before callMain().
+            this.playGame();
+            return;
+        }
         myApp.setStatus('Ready \u2014 to start press Play Game.');
         document.getElementById('btnPlay').disabled = false;
     }
@@ -138,6 +146,12 @@ class MyClass {
     // leaving drag & drop.
 
     async setupWadLoader() {
+        // Autoload / kiosk mode: when settings.js sets GZDOOMSETTINGS.WADURL, skip
+        // the whole picker UI and boot that WAD (+ optional MODURLS) as soon as the
+        // runtime is ready (see initModule). Loading progress + status stay visible;
+        // the loader interface is hidden. Nothing below runs in that mode.
+        if (this.setupAutoload()) return;
+
         var rando = Math.floor(Math.random() * 1000000);
         this.wadDefs = await this.loadJs('wads.js?v=' + rando, 'WADLIST');
         this.modDefs = await this.loadJs('mods.js?v=' + rando, 'MODLIST');
@@ -190,6 +204,39 @@ class MyClass {
 
         this.renderBaseList();
         this.renderModList();
+    }
+
+    // Autoload / kiosk mode. When settings.js sets GZDOOMSETTINGS.WADURL, the
+    // WAD/mod picker is bypassed entirely: we pin that base WAD (plus any comma-
+    // separated MODURLS, loaded with -file in list order) and let initModule()
+    // boot the game the moment the runtime is ready. The Base WAD / Mods loader
+    // interface and the Play button are hidden; the loading progress + status
+    // stay on screen. URLs are relative to index.html (or absolute). Returns true
+    // when autoload is active, false (a no-op) when WADURL is empty.
+    setupAutoload() {
+        let s = this.settings || {};
+        let wadUrl = (s.WADURL || '').trim();
+        if (!wadUrl) return false;
+
+        this.autoStart = true;
+
+        // Fixed base WAD + optional mods, straight from the configured URLs.
+        this.setBaseWad(this.makeDefItem({ path: wadUrl }));
+        (s.MODURLS || '').split(',')
+            .map((u) => u.trim())
+            .filter((u) => u.length)
+            .forEach((u) => this.addMod(this.makeDefItem({ path: u })));
+
+        // Hide the WAD/mod loader interface and the (now redundant) Play button;
+        // autoload drives everything, so only loading + status remain visible.
+        let grid = document.querySelector('.loader-grid');
+        if (grid) grid.style.display = 'none';
+        let play = document.getElementById('btnPlay');
+        if (play) play.style.display = 'none';
+        let settings = document.getElementById('btnSettings');
+        if (settings) settings.style.display = 'none';
+
+        return true;
     }
 
     // Fetch a JS manifest (wads.js / mods.js) and eval it. Each file declares a
@@ -458,7 +505,8 @@ class MyClass {
                     const memory = performance.memory;
 
                     let stats = 
-                    'usedJSHeapSize: ' + this.formatNumberWithCommas(memory.usedJSHeapSize) +
+                    'Loading...' +
+                    '<br>usedJSHeapSize: ' + this.formatNumberWithCommas(memory.usedJSHeapSize) +
                     '<br>totalJSHeapSize: ' + this.formatNumberWithCommas(memory.totalJSHeapSize) +
                     '<br>jsHeapSizeLimit: ' + this.formatNumberWithCommas(memory.jsHeapSizeLimit);
 
@@ -561,7 +609,15 @@ class MyClass {
 
         console.log('GZDoom callMain:', args);
         document.getElementById('beforePanel').style.display = 'none';
-        document.getElementById('playPanel').style.display = '';
+        if (this.autoStart)
+        {
+            document.getElementById('appTitle').style.display = 'none';
+            document.getElementById('githubLink').style.display = 'none';
+        }
+        else
+        {
+            document.getElementById('playPanel').style.display = '';
+        }
         document.getElementById('canvasDiv').style.display = '';
         this.applyCanvasSize();   // size the box before the wasm creates its SDL window
         this.setStatus('');
@@ -840,8 +896,6 @@ class MyClass {
             div.style.width = this.canvasWidth + 'px';
             // height is derived from the CSS aspect-ratio, so it isn't set here
         }
-        let label = document.getElementById('zoomLabel');
-        if (label) label.innerText = this.canvasWidth + ' \u00d7 ' + this.canvasHeight;
         this.syncEngineSize();
     }
 

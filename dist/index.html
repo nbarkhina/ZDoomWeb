@@ -290,7 +290,7 @@
 
 <body>
     <div id="maindiv" class="container-fluid text-center">
-        <h1 class="mt-3">ZDoom Web</h1>
+        <h1 class="mt-3" id="appTitle">ZDoom Web</h1>
 
         <div id="topPanel">
             <!-- BEFORE LOAD -->
@@ -363,7 +363,6 @@
                 <button class="btn btn-secondary mt-2 mb-2" id="btnZoomOut" title="Make the game window smaller">Zoom Out</button>
                 <button class="btn btn-secondary mt-2 mb-2" id="btnZoomIn" title="Make the game window larger">Zoom In</button>
                 <button class="btn btn-primary mt-2 mb-2" id="btnFullScreen">Full Screen</button>
-                <div id="zoomLabel" class="text-muted" style="font-size: 12px;"></div>
             </div>
         </div>
 
@@ -376,7 +375,7 @@
         <pre id="output"></pre>
 
         <div class="d-flex justify-content-center card-title mt-4">
-            <a href="https://github.com/nbarkhina/ZDoomWeb" target="_blank" class="github-link">
+            <a href="https://github.com/nbarkhina/ZDoomWeb" target="_blank" class="github-link" id="githubLink">
                 View source on GitHub
                 <div class="github-logo">
                     <svg viewBox="0 0 98 96" class="githubSvg" width="98" height="96" xmlns="http://www.w3.org/2000/svg">

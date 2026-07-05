@@ -211,6 +211,12 @@ LINKFLAGS := \
 # ---- targets -------------------------------------------------------------
 all: $(OUT)
 
+.PHONY: sdl2_port
+sdl2_port:
+	@embuilder build sdl2
+
+$(ALL_OBJS): | sdl2_port
+
 $(OUT): $(ALL_OBJS)
 	$(CXX) -o $@ $(ALL_OBJS) $(COMMON) $(LINKFLAGS) $(PRELOAD)
 	@echo "Copying web build ($(OUT), gzdoom.wasm, gzdoom.data) -> $(DISTDIR)/"
