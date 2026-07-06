@@ -211,11 +211,18 @@ LINKFLAGS := \
 # ---- targets -------------------------------------------------------------
 all: $(OUT)
 
-.PHONY: sdl2_port
-sdl2_port:
+# Pre-warm emscripten's SDL2 port. embuilder caches the built port in emsdk's
+# global cache, so this only needs to run once per build tree. Use a stamp file
+# (NOT a .PHONY target) as the order-only prerequisite: a phony target is always
+# considered out of date and would re-run embuilder on every build; a real stamp
+# file makes make skip it once it exists (until `make clean` wipes obj/).
+SDL2_PORT_STAMP := $(OBJDIR)/.sdl2_port.stamp
+$(SDL2_PORT_STAMP):
+	@mkdir -p $(dir $@)
 	@embuilder build sdl2
+	@touch $@
 
-$(ALL_OBJS): | sdl2_port
+$(ALL_OBJS): | $(SDL2_PORT_STAMP)
 
 $(OUT): $(ALL_OBJS)
 	$(CXX) -o $@ $(ALL_OBJS) $(COMMON) $(LINKFLAGS) $(PRELOAD)
