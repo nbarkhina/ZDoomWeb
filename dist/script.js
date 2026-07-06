@@ -58,6 +58,16 @@ class MyClass {
         ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange'].forEach((ev) =>
             document.addEventListener(ev, () => this.onFullscreenChange(), false));
 
+        // Autoload / kiosk mode: the game box is sized to fit the browser window,
+        // so re-fit it whenever the window changes. Ignore the synthetic resize
+        // events syncEngineSize() dispatches (isTrusted === false) to avoid a
+        // feedback loop; windowed mode uses a fixed zoom size and opts out here.
+        window.addEventListener('resize', (e) => {
+            if (!this.autoStart) return;
+            if (e && e.isTrusted === false) return;
+            this.applyCanvasSize();
+        }, false);
+
         this.retrieveSettings();
         this.setupSaveSystem();
         this.setupAutoload();
@@ -890,13 +900,40 @@ class MyClass {
     // Apply the current zoom size to the #canvasDiv box (CSS drives the display),
     // refresh the label, and nudge the engine to match.
     applyCanvasSize() {
-        if (this.autoStart)
-            return;
-
         let div = document.getElementById('canvasDiv');
-        // While fullscreen the :fullscreen CSS rule owns the box size, so only
-        // set the inline windowed width when we're not fullscreen.
-        if (div && !this.isFullscreen()) {
+        if (!div) return;
+
+        if (this.autoStart) {
+            if (!this.isFullscreen()) {
+                let rect = div.getBoundingClientRect();
+                // Distance from the top of the document to the box. Everything
+                // above the box has a fixed height, so this is stable regardless
+                // of the box's own height or the current scroll position.
+                let top = rect.top + (window.scrollY || 0);
+
+                let parent = div.parentElement;
+                let availW = window.innerWidth;
+                if (parent) {
+                    let pcs = getComputedStyle(parent);
+                    availW = parent.clientWidth -
+                        parseFloat(pcs.paddingLeft || 0) - parseFloat(pcs.paddingRight || 0);
+                }
+                let availH = window.innerHeight - top - 50;
+                if (!(availH > 0)) availH = window.innerHeight;   // safety net
+
+                div.style.maxWidth = 'none';
+                div.style.aspectRatio = 'auto';   // our explicit height wins
+                div.style.width = Math.floor(availW) + 'px';
+                div.style.height = Math.floor(availH) + 'px';
+            }
+            this.syncEngineSize();
+            return;
+        }
+
+        // Windowed (picker) mode: the CSS aspect-ratio derives the height, so we
+        // only set the inline windowed width -- and only when we're not
+        // fullscreen, where the :fullscreen CSS rule owns the box size.
+        if (!this.isFullscreen()) {
             div.style.width = this.canvasWidth + 'px';
             // height is derived from the CSS aspect-ratio, so it isn't set here
         }
