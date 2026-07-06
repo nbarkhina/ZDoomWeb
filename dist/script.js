@@ -59,8 +59,9 @@ class MyClass {
             document.addEventListener(ev, () => this.onFullscreenChange(), false));
 
         this.retrieveSettings();
-        this.loadZoom();
         this.setupSaveSystem();
+        this.setupAutoload();
+        this.loadZoom();
         // NB: setupWadLoader() is intentionally NOT started here. It is invoked at
         // the bottom of this file, AFTER settings.js's postLoad() wires the
         // mod/WAD hooks -- so modReplacementHook is guaranteed to exist before the
@@ -150,7 +151,7 @@ class MyClass {
         // the whole picker UI and boot that WAD (+ optional MODURLS) as soon as the
         // runtime is ready (see initModule). Loading progress + status stay visible;
         // the loader interface is hidden. Nothing below runs in that mode.
-        if (this.setupAutoload()) return;
+        if (this.autoStart) return;
 
         var rando = Math.floor(Math.random() * 1000000);
         this.wadDefs = await this.loadJs('wads.js?v=' + rando, 'WADLIST');
@@ -889,6 +890,9 @@ class MyClass {
     // Apply the current zoom size to the #canvasDiv box (CSS drives the display),
     // refresh the label, and nudge the engine to match.
     applyCanvasSize() {
+        if (this.autoStart)
+            return;
+
         let div = document.getElementById('canvasDiv');
         // While fullscreen the :fullscreen CSS rule owns the box size, so only
         // set the inline windowed width when we're not fullscreen.
